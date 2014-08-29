@@ -28,6 +28,8 @@ class autoloader
             'core/',
             'core/exception/',
             'core/security/',
+            'core/database/',
+            'core/configuration/',
         );
 
         //for each directory
