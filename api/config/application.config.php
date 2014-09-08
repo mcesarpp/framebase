@@ -11,5 +11,8 @@ return array(
         'annotation_path' => array(
             'src/model/entity'
         )
+    ),
+    'token' => array(
+        'default_ttl' => '3' //indica a quantidade padrão de segundos para a expiração de um token
     )
 );

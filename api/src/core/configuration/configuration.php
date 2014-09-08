@@ -2,6 +2,8 @@
 
 namespace core\configuration;
 
+use core\exception\IncorrectConfiguration;
+
 /**
  * Description of configuration
  *
@@ -35,8 +37,19 @@ class configuration
 
     static public function getConfig($configIdentifier)
     {
-        $instance = self::getInstance();
-        return isset(self::$_sysConf[$configIdentifier]) ? self::$_sysConf[$configIdentifier] : false;
+        self::getInstance();
+
+        $arrIdentifierParts = array_reverse(explode('@', $configIdentifier));
+        $configRefference = &self::$_sysConf;
+
+        foreach ($arrIdentifierParts as $identifierPart) {
+            if (!isset($configRefference[$identifierPart])) {
+                throw new IncorrectConfiguration("Identificador da configuração incorreto[$configIdentifier]");
+            }
+            $configRefference = &$configRefference[$identifierPart];
+        }
+
+        return $configRefference;
     }
 
 }

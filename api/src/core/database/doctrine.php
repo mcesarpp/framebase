@@ -38,9 +38,11 @@ class doctrine
     {
         if ($this->entityManager == null) {
 
+            $isDevmode = true;
+
             $doctrineConf = configuration::getConfig('doctrine');
 
-            $doctrineConfig = \Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration($doctrineConf['annotation_path'], true);
+            $doctrineConfig = \Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration($doctrineConf['annotation_path'], $isDevmode, null, null, false);
             $this->entityManager = \Doctrine\ORM\EntityManager::create($doctrineConf['dbParams'], $doctrineConfig);
         }
         return $this->entityManager;

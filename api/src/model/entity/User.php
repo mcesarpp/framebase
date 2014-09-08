@@ -1,7 +1,5 @@
 <?php
 
-
-
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -57,4 +55,129 @@ class User
     private $active = '1';
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nickname
+     *
+     * @param string $nickname
+     * @return User
+     */
+    public function setNickname($nickname)
+    {
+        $this->nickname = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Get nickname
+     *
+     * @return string 
+     */
+    public function getNickname()
+    {
+        return $this->nickname;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return User
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string 
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return User
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
 }
