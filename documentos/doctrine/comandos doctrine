@@ -1,0 +1,14 @@
+A partir da raiz do projeto execute:
+    php vendor/doctrine/orm/bin/doctrine <comando>
+
+onde <comando> deve representar os comandos desejados, dentre os listados a seguir:
+
+- Gerar entidades ORM:
+
+#gera entidades
+orm:convert-mapping --force --filter="NomeTabela" --from-database annotation ./src/model/entity/
+
+a seguir
+
+#gera setters e getters
+orm:generate-entities ./model/entity/ --filter="NomeTabela" --generate-annotations=true

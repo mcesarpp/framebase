@@ -1,5 +1,11 @@
 <?php
 
+namespace core\security;
+
+use core\exception\NotImplementedException;
+use core\exception\ResourceNotAllowedException;
+use core\exception\ResourceNotFoundException;
+
 /**
  * Description of AcessSecurity
  *

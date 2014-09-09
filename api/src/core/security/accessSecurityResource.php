@@ -1,5 +1,7 @@
 <?php
 
+namespace core\security;
+
 /**
  * Description of AcessSecurityResource
  *

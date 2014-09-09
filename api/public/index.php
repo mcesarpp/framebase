@@ -5,6 +5,8 @@ chdir(dirname(__DIR__));
 require '/vendor/autoload.php';
 require '/src/core/autoloader.php';
 
+define('BASE_SYS_PATH', __DIR__ . '/../');
+
 autoloader::init();
 
 $app = new \Slim\Slim();

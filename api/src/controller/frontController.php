@@ -1,6 +1,7 @@
 <?php
 
 use core\abstractController;
+use core\security\AccessSecurity;
 
 /**
  * Description of frontController
@@ -31,7 +32,6 @@ class frontController extends abstractController
 
             $controllerObject->$actionMethodName($params);
         } catch (Exception $ex) {
-
             if ($ex instanceof ResourceNotAllowedException) {
                 $this->getApp()->response->setStatus(401);
             } elseif ($ex instanceof NotImplementedException) {

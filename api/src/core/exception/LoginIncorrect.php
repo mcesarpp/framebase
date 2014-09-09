@@ -7,7 +7,7 @@ namespace core\exception;
  *
  * @author Provisorio
  */
-class ResourceNotAllowedException extends \Exception
+class LoginIncorrect extends \Exception
 {
     
 }
