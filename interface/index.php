@@ -6,7 +6,7 @@
 
         <!-- SCROLLS -->
         <!-- load bootstrap and fontawesome via CDN -->
-        <link rel="stylesheet" href="css/vendor/bootstrap.css" />
+        <link rel="stylesheet" href="css/vendor-cosmo/bootstrap.min.css" />
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
 
         <!-- SPELLS -->
