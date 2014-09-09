@@ -37,6 +37,7 @@ class tokenRule
 
         $em->persist($token);
         $em->flush();
+       
 
         return $token;
     }

@@ -13,6 +13,6 @@ return array(
         )
     ),
     'token' => array(
-        'default_ttl' => '3' //indica a quantidade padrão de segundos para a expiração de um token
+        'default_ttl' => '14400' //indica a quantidade padrão de segundos para a expiração de um token
     )
 );
