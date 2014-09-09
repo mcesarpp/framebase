@@ -28,7 +28,7 @@ mainApp.factory('AuthService', ["CommService", "UserService", "$rootScope", func
 
                 CommService.send('token', 'get', requestObject,
                         function(message, data) {
-                            UserService.setUser(data.user, data.token);
+                            UserService.setUser(data.token.user, data.token);
                             $('#login-modal-container').modal('hide');
                             _this.resetLoginCandidate();
                         },

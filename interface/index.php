@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
         <base href="/slim/interface/">
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>SB Admin - Bootstrap Admin Template</title>
 
         <!-- SCROLLS -->
         <!-- load bootstrap and fontawesome via CDN -->
-        <link rel="stylesheet" href="css/vendor-cosmo/bootstrap.min.css" />
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/sb-admin.css" >
+        <link rel="stylesheet" href="css/font-awesome-4.1.0/css/font-awesome.min.css" />
 
         <!-- SPELLS -->
         <!-- load angular via CDN -->
@@ -25,37 +33,47 @@
 
     </head>
     <body ng-app="mainApp">
+        <div id="wrapper" ng-controller="mainController">           
+            <!-- Navigation -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="menuToggle()">
+                        <span class="glyphicon glyphicon-align-left"></span>
+                    </button>
+                </div>
+                <!-- Top Menu Items -->
+                <ul class="nav navbar-right top-nav">
 
-        <div id="modalContainer" style="display: none">
-            <button id="__modalBtnTemplate" type="button" class="btn btn-default"></button>
-            <div 
-                class="modal fade" 
-                id="__genericModalTemplate" 
-                tabindex="-1" role="dialog" 
-                aria-labelledby="myModalLabel"
-                aria-hidden="true"
-                style="display: none;"
-                >
-                <div class="modal-dialog">
-                    <div class="modal-content" >
-                        <div  id="__genericModal-header" class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 id="__genericModal-title" class="modal-title"></h4>
+                </ul>
+                <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav side-nav">
+                        <div ng-if="UserService.isLoggedIn">
+                            <p class="navbar-text">Bem vindo, {{UserService.user.nickname}}</p>
+                            <a ng-click="AuthService.doLogout()"><i class="fa fa-user"></i> Logout</a>
                         </div>
-                        <div id="__genericModal-body" class="modal-body" style=" max-height: 400px; overflow-y: auto; ">
-
+                        <div ng-if="!UserService.isLoggedIn">
+                            <a ng-click="AuthService.showLogin()"><i class="fa fa-user"></i> Login</a>
                         </div>
-                        <div id="__genericModal-footer" class="modal-footer">
+                        <li class="active">
+                            <a href="#/"><i class="fa fa-fw fa-dashboard"></i>Home</a>
+                        </li>
+                        <li >
+                            <a href="#/test"><i class="fa fa-shield"></i> Test</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
 
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-        </div>
+
+            <div id="page-wrapper" style="height: 100%">
+                <div ng-view></div>
+            </div>
 
 
-
-        <div ng-controller="mainController">
+            <!--Login Container-->
 
             <div id="login-modal-container" class="modal fade">
                 <div class="modal-dialog">
@@ -82,31 +100,39 @@
                 </div>
             </div>
 
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="#/">Home</a>
-                    </div>
 
-                    <ul class="nav navbar-nav navbar-default">
-                        <li><a href="#/test"><i class="fa fa-shield"></i> Test</a></li>
-                    </ul>
+            <!--Generic modal container-->
 
-                    <ul class="nav navbar-nav navbar-right" ng-if="UserService.isLoggedIn">
-                        <li><a>Bem vindo, {{UserService.user.nickname}}</a></li>
-                        <li><a ng-click="AuthService.doLogout()"><i class="fa fa-user"></i> Logout</a></li>
-                    </ul>
+            <div id="modalContainer" style="display: none">
+                <button id="__modalBtnTemplate" type="button" class="btn btn-default"></button>
+                <div 
+                    class="modal fade" 
+                    id="__genericModalTemplate" 
+                    tabindex="-1" role="dialog" 
+                    aria-labelledby="myModalLabel"
+                    aria-hidden="true"
+                    style="display: none;"
+                    >
+                    <div class="modal-dialog">
+                        <div class="modal-content" >
+                            <div  id="__genericModal-header" class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 id="__genericModal-title" class="modal-title"></h4>
+                            </div>
+                            <div id="__genericModal-body" class="modal-body" style=" max-height: 400px; overflow-y: auto; ">
 
-                    <ul class="nav navbar-nav navbar-right" ng-if="!UserService.isLoggedIn">
-                        <li><a ng-click="AuthService.showLogin()"><i class="fa fa-user"></i> Login</a></li>
-                    </ul>
-                </div>
-            </nav>
+                            </div>
+                            <div id="__genericModal-footer" class="modal-footer">
 
-            <div ng-view></div> 
-        </div> 
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+            </div>
 
 
+
+        </div>
 
     </body>
 </html>

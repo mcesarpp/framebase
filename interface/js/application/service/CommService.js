@@ -8,13 +8,9 @@ mainApp.factory('CommService', ["$http", "UserService", function($http, UserServ
                     method: 'POST',
                     url: url,
                     headers: {
-                        token: UserService.token
+                        token: UserService.token !== null ? UserService.token.tokenKey : null
                     }
                 });
-
-                if (config.debug) {
-                    console.log('Request:', requestData);
-                }
 
                 responseObj.success(function(responseData, status) {
                     if (responseData.status) {

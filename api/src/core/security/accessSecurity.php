@@ -44,11 +44,11 @@ class AccessSecurity
             ),
             'teste::testea' => array(
                 'authenticationRequired' => true,
-                'authorizationRequired' => true
+                'authorizationRequired' => false
             ),
             'teste::testeb' => array(
                 'authenticationRequired' => true,
-                'authorizationRequired' => true
+                'authorizationRequired' => false
             )
         );
 
